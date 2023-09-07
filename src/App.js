@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Icon } from "@iconify/react";
 
-const api_key = "523960c39396ebd57a854ce18c8e3e6c";
-
 const convertTimeStamp = (dt) => {
   const date = new Date(dt * 1000);
   return date.toLocaleDateString(); // Adjust the format as needed
@@ -79,6 +77,8 @@ function CityCard({ data }) {
 }
 
 function App() {
+  const api_key = process.env.REACT_APP_API_KEY;
+  console.log(api_key)
   const [searchInput, setSearchInput] = useState("new york");
   const [cityName, setCityName] = useState("new york");
   const [errorMessage, setErrorMessage] = useState("");
